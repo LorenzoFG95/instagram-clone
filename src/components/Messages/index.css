@@ -1,0 +1,50 @@
+.chat {
+  background-color: rgb(242, 242, 242);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.chat:hover {
+  background-color: rgb(207, 206, 206);
+}
+
+.chat img {
+  border-radius: 100%;
+  background-color: white;
+}
+.chat__info {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chat__info h3 {
+  margin: 0;
+}
+
+.chat__info span {
+  color: gray;
+}
+
+/* provo a troncare il testo */
+.chat {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat__info {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.chat__info p {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

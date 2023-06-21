@@ -6,6 +6,7 @@
   align-items: center;
   background-color: #fafafa;
   box-shadow: 0px 0.33px 0px #a6a6aa;
+  height: 60px;
 }
 
 .TopBar__Logo {
@@ -19,4 +20,19 @@
   display: flex;
   gap: 18px;
   align-items: center;
+}
+
+.TopBar__Camera,
+.TopBar__Logo,
+.TopBar__Actions--tv,
+.TopBar__Actions--msg {
+  cursor: pointer;
+  transition: transform 1s;
+}
+
+.TopBar__Camera:active,
+.TopBar__Logo:active,
+.TopBar__Actions--tv:active,
+.TopBar__Actions--msg:active {
+  transform: rotate(359deg);
 }
