@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import TopBar from "./components/TopBar";
 import Stories from "./components/Stories";
 import Posts from "./components/Posts";
+import Camera from "./components/Camera/Camera";
+import Messages from "./components/Messages";
 import { storiesData } from "./mocks/stories";
 import { userData } from "./mocks/user";
 import { postData } from "./mocks/posts";
 import "./App.css";
-import Camera from "./components/Camera/Camera";
-import Messages from "./components/Messages";
 
 function App() {
   const [stories, setStories] = useState(storiesData);
@@ -15,6 +15,7 @@ function App() {
   const [posts, setPosts] = useState(postData);
 
   const [section, setSection] = useState("home");
+  const [camera, setCamera] = useState(false);
 
   useEffect(() => {
     fetch("https://api.npoint.io/c59d0538fafba6432ffe")
@@ -42,7 +43,7 @@ function App() {
           </>
         );
       case "camera":
-        return <Camera />;
+        return <Camera camera={camera} setCamera={setCamera} />;
       case "tv":
         return <h1>TVVVVV</h1>;
       case "messages":
@@ -52,7 +53,7 @@ function App() {
 
   return (
     <>
-      <TopBar setSection={setSection} />
+      <TopBar setSection={setSection} setCamera={setCamera} />
       {onSectionRender()}
     </>
   );

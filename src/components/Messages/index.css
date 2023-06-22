@@ -1,50 +1,48 @@
-.chat {
-  background-color: rgb(242, 242, 242);
-  height: 60px;
+.Messages {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Messages__chat {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid grey;
+  padding: 6px 0;
+  cursor: pointer;
 }
 
-.chat:hover {
-  background-color: rgb(207, 206, 206);
+.Messages__chat:active {
+  background-color: lightgrey;
 }
 
-.chat img {
+.Messages__chat img {
+  width: 60px;
   border-radius: 100%;
-  background-color: white;
 }
-.chat__info {
-  height: 60px;
+
+.Messages__chat--text {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-.chat__info h3 {
-  margin: 0;
+.Messages__chat--text p:nth-of-type(1) {
+  font-size: 0.9rem;
 }
 
-.chat__info span {
-  color: gray;
+.Messages__chat--text p:nth-of-type(2) {
+  font-size: 0.8rem;
+  color: rgb(113, 113, 113);
 }
 
-/* provo a troncare il testo */
-.chat {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.singleChat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
-.chat__info {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.chat__info p {
-  width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+.singleChat__msg {
+  padding: 0 20px;
+  border-radius: 20px;
+  background-color: lightseagreen;
+  color: white;
 }

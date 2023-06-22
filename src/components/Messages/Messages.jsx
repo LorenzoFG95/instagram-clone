@@ -1,37 +1,58 @@
-import "./index.css";
-import { messagesData } from "../../mocks/messages";
-import { getTimePassed } from "../../utils/fn";
 import { useState, useEffect } from "react";
 
+import "./index.css";
+
 const Messages = () => {
-  const [messages, setMessages] = useState(messagesData);
+  const [messages, setMessages] = useState([]);
+  const [chatName, setChatName] = useState("");
 
   useEffect(() => {
-    fetch("https://api.npoint.io/38faf5e58f7267f799b4")
+    fetch("https://api.npoint.io/3d4e7d32d85d0fe148aa")
       .then((res) => res.json())
-      .then((data) => setMessages(data));
+      .then((data) => setMessages(data.messageList));
   }, []);
-  return (
-    <div>
-      <ul>
-        {messages?.map((chat) => (
-          <li className="chat" key={chat?.id}>
+
+  const onSetChatName = (value) => setChatName(value);
+
+  const onChatRendering = () => {
+    switch (chatName) {
+      case "":
+        return messages?.map((chat, i) => (
+          <div
+            className="Messages__chat"
+            onClick={() => onSetChatName(chat.participants[1].username)}
+            key={i}
+          >
             <img
-              className="chat__pic"
-              src={chat.sender.userImage}
-              alt={chat.sender.username}
+              src={chat.participants[1].avatar_url}
+              alt={chat.participants[1].username}
             />
-            <div className="chat__info">
-              <h3>{chat.sender.username}</h3>
-              <p>
-                {chat.content} <span>{getTimePassed(chat.timestamp)}</span>
-              </p>
+            <div className="Messages__chat--text">
+              <p>{chat.participants[1].username}</p>
+              <p>{chat.messages[chat.messages.length - 1].content}</p>
             </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+          </div>
+        ));
+      default:
+        return (
+          <div className="singleChat">
+            <p onClick={() => onSetChatName("")}>{"<"}</p>
+            {messages[0].messages.map((message) => (
+              <p
+                className="singleChat__msg"
+                style={{
+                  alignSelf: message.sender === "John" ? "end" : "start",
+                }}
+              >
+                {message.content}
+              </p>
+            ))}
+          </div>
+        );
+    }
+  };
+
+  return <div className="Messages">{onChatRendering()}</div>;
 };
 
 export default Messages;
