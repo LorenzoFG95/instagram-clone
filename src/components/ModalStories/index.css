@@ -1,0 +1,95 @@
+.ModalStories {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.ModalStories.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ModalStories__Close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  color: #f7f7f7;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid #f7f7f7;
+  border-radius: 8px;
+}
+
+.ModalStories__User {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  z-index: 2;
+}
+
+.ModalStories .swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.ModalStories img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.ModalStories video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.ModalStories__User {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.ModalStories__User__Image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #f7f7f7;
+}
+
+.ModalStories__User__Image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ModalStories .swiper-pagination {
+  top: 5px;
+  width: 90%;
+  left: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.ModalStories .swiper-pagination-progressbar-fill {
+  background: rgba(255, 255, 255, 0.9);
+}

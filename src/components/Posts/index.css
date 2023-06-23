@@ -1,3 +1,16 @@
 .post_inlist {
   list-style-type: none;
 }
+
+.PostContent {
+  width: 100%;
+}
+
+.PostContent .swiper-slide {
+  height: 375px;
+}
+.PostContent video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
